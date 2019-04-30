@@ -1,18 +1,14 @@
 require './lib/card'
 
 class Turn
-  attr_accessor :string, :card
-  
-  def initialize(string, card)
-    @string = string
+  attr_accessor :string, :card, :guess
+
+  def initialize(guess, card)
     @card = card
-    # @guess = guess
+    @guess = guess
     # @correct = correct
   end
 
-  # def guess
-  #   if @string == @answer
-  #
   # def correct?
   #   if @guess == @answer
   #     puts true
