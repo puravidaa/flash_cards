@@ -8,6 +8,8 @@ class Deck
     @count = 0
   end
 
-  def count_cards
-      @cards.count
+  def count
+     @cards.count
+  end
+
 end
