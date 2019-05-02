@@ -29,4 +29,10 @@ class RoundTest < Minitest::Test
 
   assert_equal @deck, @round.deck
   end
+
+  def test_it_has_turns
+  assert_equal [], @round.turns
+  end
+
+  
 end
