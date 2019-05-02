@@ -24,4 +24,9 @@ class RoundTest < Minitest::Test
     #skip
   assert_instance_of Round, @round
   end
+
+  def test_it_takes_in_a_deck
+
+  assert_equal @deck, @round.deck
+  end
 end
