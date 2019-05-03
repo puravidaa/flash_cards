@@ -52,13 +52,14 @@ class RoundTest < Minitest::Test
     assert_equal @current_card, @current_card_number
   end
 
-  # def test_if_turn_is_correct
-  #   assert
-  # end
+  def test_if_turn_is_correct
+    assert true, @new_turn.correct?
+    refute false, @new_turn.correct?
+  end
 
   def test_it_counts_turns
     @new_turn = @round.take_turn("Juneau")
 
     assert_equal 2, @round.turns.count
-  end
+  end889
 end
