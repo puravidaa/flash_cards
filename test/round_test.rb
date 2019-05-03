@@ -1,6 +1,7 @@
 require './lib/card'
 require './lib/deck'
 require './lib/round'
+require './lib/turn'
 require 'minitest/autorun'
 require 'minitest/pride'
 
@@ -18,21 +19,46 @@ class RoundTest < Minitest::Test
     @deck = Deck.new(@cards)
 
     @round = Round.new(@deck)
+
+    @new_turn = @round.take_turn("Juneau")
   end
 
   def test_it_exists
-    #skip
+    skip
   assert_instance_of Round, @round
   end
 
   def test_it_takes_in_a_deck
-
+    skip
   assert_equal @deck, @round.deck
   end
 
-  def test_it_has_turns
+  def test_it_has_empty_turns_array
+    skip
   assert_equal [], @round.turns
   end
 
-  
+  def test_it_shows_the_first_current_card
+    skip
+  assert_equal @deck.cards[0], @round.current_card
+  end
+
+  def test_it_takes_turns
+    # second_turn = @round.take_turn
+    # assert_not_equal @new_turn, second_turn
+    turn = @round.take_turn("Juneau")
+    assert_equal @round.turns.last, turn
+
+    assert_equal @current_card, @current_card_number
+  end
+
+  # def test_if_turn_is_correct
+  #   assert
+  # end
+
+  def test_it_counts_turns
+    @new_turn = @round.take_turn("Juneau")
+
+    assert_equal 2, @round.turns.count
+  end
 end
