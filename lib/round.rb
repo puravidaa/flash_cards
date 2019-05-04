@@ -56,4 +56,4 @@ class Round
     end
     number_correct_by_category(category) / turns_in_category.count.to_f * 100
   end
-end9
+end
