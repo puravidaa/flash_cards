@@ -4,6 +4,7 @@ require './lib/round'
 require './lib/turn'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'pry'
 
 class RoundTest < Minitest::Test
 
@@ -53,13 +54,23 @@ class RoundTest < Minitest::Test
   end
 
   def test_if_turn_is_correct
-    assert true, @new_turn.correct?
-    refute false, @new_turn.correct?
+    assert @new_turn.correct?
   end
 
   def test_it_counts_turns
     @new_turn = @round.take_turn("Juneau")
 
     assert_equal 2, @round.turns.count
-  end889
+  end
+
+  def test_if_last_feedback_comes_back_incorrect
+    @turn = Turn.new("Denver", @card_1)
+    assert_equal "Incorrect.", @turn.feedback
+  end
+
+  def test_if_number_correct_by_category
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+  end
+89
 end
