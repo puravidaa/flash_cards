@@ -36,7 +36,15 @@ class Round
     @number_correct
   end
 
-  # how many guesses are correct
-
-
+  def number_correct_by_category(category)
+    turns_in_category = @turns.find_all do |turn|
+      turn.correct?
+    end
+    turns_correct = turns_in_category.find_all do |turn|
+      turn.card.category == category
+    end
+    turns_correct.count 
+  end
 end
+  # @turn.card.category
+  # how many guesses are correct
