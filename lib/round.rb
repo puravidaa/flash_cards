@@ -51,8 +51,9 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    # number_correct_by_category(category)
+    turns_in_category = @turns.find_all do |turn|
+      turn.correct?
+    end
+    number_correct_by_category(category) / turns_in_category.count.to_f * 100
   end
-end
-  # @turn.card.category
-  # how many guesses are correct
+end9
