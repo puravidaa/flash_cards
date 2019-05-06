@@ -2,7 +2,7 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 require './lib/turn'
-# require 'binding.pry'
+require 'pry'
 
 class Round
   attr_reader :deck, :turns, :current_card
@@ -52,7 +52,7 @@ class Round
 
   def percent_correct_by_category(category)
     turns_in_category = @turns.find_all do |turn|
-      turn.correct?
+      turn.card.category == category
     end
     number_correct_by_category(category) / turns_in_category.count.to_f * 100
   end
