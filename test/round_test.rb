@@ -28,7 +28,7 @@ class RoundTest < Minitest::Test
     skip
   assert_instance_of Round, @round
   end
-
+  
   def test_it_takes_in_a_deck
     skip
   assert_equal @deck, @round.deck
@@ -48,9 +48,8 @@ class RoundTest < Minitest::Test
     # second_turn = @round.take_turn
     # assert_not_equal @new_turn, second_turn
     turn = @round.take_turn("Juneau")
-    assert_equal @round.turns.last, turn
-
-    assert_equal @current_card, @current_card_number
+    assert_instance_of Turn, turn
+    assert_equal @card_3, @round.current_card
   end
 
   def test_if_turn_is_correct
