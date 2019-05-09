@@ -37,12 +37,17 @@ class Round
   end
 
   def number_correct_by_category(category)
+    # find out if the card in turns is correct
     turns_in_category = @turns.find_all do |turn|
       turn.correct?
     end
+
+    # find the number of correct turns in each category
     turns_correct = turns_in_category.find_all do |turn|
       turn.card.category == category
     end
+
+    # count correct turns
     turns_correct.count
   end
 
@@ -54,6 +59,9 @@ class Round
     turns_in_category = @turns.find_all do |turn|
       turn.card.category == category
     end
+
+    # number of correct answers in
+    # category divided by the cards (for our two turns) in each category
     number_correct_by_category(category) / turns_in_category.count.to_f * 100
   end
 end
